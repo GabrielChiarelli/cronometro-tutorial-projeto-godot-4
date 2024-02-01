@@ -1,11 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://ca3pwjyqgqwn5"]
+[gd_scene load_steps=3 format=3 uid="uid://ca3pwjyqgqwn5"]
 
 [ext_resource type="Texture2D" uid="uid://bilu2p02dlgmr" path="res://assets/sprites/mascote-laranja.png" id="1_b2wi8"]
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_nccnx"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_nccnx")
 
 [node name="Laranjo" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(640, 360)
 scale = Vector2(10, 10)
 texture = ExtResource("1_b2wi8")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
